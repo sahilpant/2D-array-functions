@@ -57,6 +57,7 @@ std::vector<std::vector<int>> nintyClockwise(std::vector<std::vector<int>> a){
 std::vector<std::vector<int>> oneEightyClockwise(std::vector<std::vector<int>> a){
    std::vector<std::vector<int>> b;
    b = flipMatrixTopBottom(a);
+   b = flipMatrixRightLeft(b);
    return b;
 }
 
