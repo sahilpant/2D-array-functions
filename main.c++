@@ -89,6 +89,7 @@ int main()
             a.push_back(row);
             row.clear();
         }
+        show(a);
         std::cout<<"Choose from the followig::"<<"\n";
         std::cout<<"1.Rotate the matrix to a 90::"<<"\n";
         std::cout<<"2.Rotate the matrix to a 180::"<<"\n";
