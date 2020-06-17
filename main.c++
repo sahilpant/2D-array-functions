@@ -64,9 +64,7 @@ std::vector<std::vector<int>> oneEightyClockwise(std::vector<std::vector<int>> a
 std::vector<std::vector<int>> twoSeventyClockwise(std::vector<std::vector<int>> a){
     std::vector<std::vector<int>> b;
     b = transposeMatrix(a);
-    b = flipMatrixRightLeft(b);
     b = flipMatrixTopBottom(b);
-    b = flipMatrixRightLeft(b);
     return b;
 }
 
