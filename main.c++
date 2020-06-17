@@ -47,6 +47,8 @@ void show(std::vector<std::vector<int>> a){
     }
 }
 
+/*****CLOCKWISE ROTAION FUNCTIONS*****/
+
 std::vector<std::vector<int>> nintyClockwise(std::vector<std::vector<int>> a){
     std::vector<std::vector<int>> b;
     b = transposeMatrix(a);
@@ -68,6 +70,29 @@ std::vector<std::vector<int>> twoSeventyClockwise(std::vector<std::vector<int>> 
     return b;
 }
 
+/*****ANTI-CLOCKWISE ROTAION FUNCTIONS*****/
+
+std::vector<std::vector<int>> nintyAntiClockwise(std::vector<std::vector<int>> a){
+    std::vector<std::vector<int>> b;
+    b = twoSeventyClockwise(a);
+    return b;
+}
+
+std::vector<std::vector<int>> oneEightyAntiClockwise(std::vector<std::vector<int>> a){
+    std::vector<std::vector<int>> b;
+    b = twoSeventyClockwise(a);
+    b = twoSeventyClockwise(b);
+    return b;
+}
+
+std::vector<std::vector<int>> twoSeventyAntiClockwise(std::vector<std::vector<int>> a){
+    std::vector<std::vector<int>> b;
+    b = nintyClockwise(a);
+    return b;
+}
+
+/*****RANDOM FUNCTIONS*****/
+
 void find(std::vector<std::vector<int>> a,int pos){
     int div = 0;
     if (!pos%a.size()){
@@ -78,6 +103,8 @@ void find(std::vector<std::vector<int>> a,int pos){
     div = pos/a.size();
     std::cout<<a[div][(pos%a.size())-1];
 }
+
+/*****MAIN FUNCTION**/
 
 int main()
 {
@@ -102,25 +129,46 @@ int main()
     show(a);
     A:
     std::cout<<"Choose from the followig::"<<"\n";
-    std::cout<<"1.Rotate the matrix to a 90::"<<"\n";
-    std::cout<<"2.Rotate the matrix to a 180::"<<"\n";
-    std::cout<<"3.Rotate the matrix to a 270::"<<"\n";
-    std::cout<<"4.Find by place of occurance::"<<"\n";
+    std::cout<<"1.Rotate the matrix to a 90 clockwise::"<<"\n";
+    std::cout<<"2.Rotate the matrix to a 90 anti-clockwise::"<<"\n";
+    std::cout<<"3.Rotate the matrix to a 180 clockwise::"<<"\n";
+    std::cout<<"4.Rotate the matrix to a 180 anti-clockwise::"<<"\n";
+    std::cout<<"5.Rotate the matrix to a 270 clockwise::"<<"\n";
+    std::cout<<"6.Rotate the matrix to a 270 anti-clockwise::"<<"\n";
+    std::cout<<"7.Find by place of occurance::"<<"\n";
     std::cin>>choice;
     switch(choice){
         case 1: 
         a = nintyClockwise(a);
         show(a);
         break;
-        case 2: 
+        
+        case 2:
+        a = nintyAntiClockwise(a);
+        show(a);
+        break;
+        
+        case 3: 
         a = oneEightyClockwise(a);
         show(a);
         break;
-        case 3: 
+        
+        case 4:
+        a = oneEightyAntiClockwise(a);
+        show(a);
+        break;
+        
+        case 5: 
         a = twoSeventyClockwise(a);
         show (a);
         break;
-        case 4:
+        
+        case 6:
+        a = twoSeventyAntiClockwise(a);
+        show(a);
+        break;
+
+        case 7:
         std::cout<<"Enter the position::";
         std::cin>>pos;
         find(a,pos);
