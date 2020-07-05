@@ -91,25 +91,27 @@ std::vector<std::vector<int>> twoSeventyAntiClockwise(std::vector<std::vector<in
     return b;
 }
 
-/*****RANDOM FUNCTIONS*****/
+/*****AUXILIARY FUNCTIONS*****/
 
 void find(std::vector<std::vector<int>> a,int pos){
-    int div = 0;
-    if (!pos%a.size()){
-        div = pos/a.size();
-        std::cout<<a[div][a.size()-1];
-        return;
+    int div = pos/a.size();
+    int rem = pos%a.size();
+    if(rem==0)
+    {
+        std::cout<<a[div-1][pos-1]<<"\n";
     }
-    div = pos/a.size();
-    std::cout<<a[div][(pos%a.size())-1];
+    else
+    {
+        std::cout<<a[div][rem-1]<<"\n";
+    }
 }
 
 /*****MAIN FUNCTION**/
 
 int main()
 {
-    std::vector<std::vector<int>> a;
-    std::vector<int> row;
+    std::vector<std::vector<int>> a; //a{{}}
+    std::vector<int> row; //row{1,2,3}
     int n,choice,input,pos; 
     char choice1,choice2;
     B:
